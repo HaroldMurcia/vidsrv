@@ -1,0 +1,6 @@
+<launch>
+  <arg name="url" default="10.60.8.174:8080"/>
+
+  <node pkg="vidsrv" type="get_imu.py" name="get_imu" output="screen" args="$(arg url)"/>
+
+</launch>
