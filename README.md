@@ -2,19 +2,19 @@
 
 Mobile Setup:
 
-Download IP Webcam from Google PlayStore
+1)Download IP Webcam from Google PlayStore
 
-In the app enabl data logging.
+2)In the app enabl data logging.
 
-In Video Preferences change resolution to 640x480.
+3)In Video Preferences change resolution to 640x480.
 
 
 
 Dependencies and laptop setup:
 
-Install ros-kinetic-ipcamera-driver.
+1)Install ros-kinetic-ipcamera-driver.
 
-clone it in a catkin_workspace and run catkin_make.
+2)clone it in a catkin_workspace and run catkin_make.
 
 
 Steps:
