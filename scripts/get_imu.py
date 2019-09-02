@@ -8,7 +8,7 @@ rospy.init_node("imu_from_web",anonymous=True)
 
 class Main(object):
     def __init__(self, url_arg="10.60.8.174:8080"):
-        self.host_url="http://"+url_arg+"/sensors.json?from=1566664394761&sense=accel,mag,gyro,light,proximity,gravity,lin_accel,rot_vector,battery_voltage,battery_level,battery_temp"
+        self.host_url="http://"+url_arg+"/sensors.json"
         self.imu_pub = rospy.Publisher("/imu", Imu , queue_size=10)
         self.req = requests.get(self.host_url,stream=True)
         self.imu_message = Imu()
