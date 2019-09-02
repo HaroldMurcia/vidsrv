@@ -30,8 +30,8 @@ class Main(object):
             raw_data = self.req.json()
 
             # get past five values of raw gyro and accel data
-            gyro_raw = raw_data['gyro']['data'][-1:]
-            accel_raw = raw_data['lin_accel']['data'][-1:]
+            gyro_raw = raw_data['gyro']['data'][-1:-4:-1]
+            accel_raw = raw_data['lin_accel']['data'][-1:-4:-1]
             
             #mean of the past five vals
             for i in range(len(gyro_raw)):
