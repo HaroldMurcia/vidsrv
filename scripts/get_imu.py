@@ -76,7 +76,7 @@ class Main(object):
 
 if __name__ == "__main__":
     try:
-        i = Main()
+        i = Main(sys.argv[1])
         i.get_data()
     except:
         print("provide url after hosting on web. Follow Readme")
