@@ -9,9 +9,14 @@ rospy.init_node("imu_from_web",anonymous=True)
 class Main(object):
     def __init__(self, url_arg="10.60.8.174:8080"):
         self.host_url="http://"+url_arg+"/sensors.json"
+<<<<<<< HEAD
         print("URL set to:",self.host_url)
         self.imu_pub = rospy.Publisher("/imu0", Imu , queue_size=10)
         self.req = requests.get(self.host_url)
+=======
+        self.imu_pub = rospy.Publisher("/imu", Imu , queue_size=10)
+        self.req = requests.get(self.host_url,stream=True)
+>>>>>>> 8d811029c8e7bbb0165324aba5a07bf10e94c52b
         self.imu_message = Imu()
         self.gyro_mean_read = [0,0,0]
         self.accel_mean_read = [0,0,0]
@@ -27,6 +32,7 @@ class Main(object):
         
         while not rospy.is_shutdown():
             # send request to server and get data in json    
+<<<<<<< HEAD
             # self.req = requests.get(self.host_url,params={'gyro':'gyro','lin_accel':'lin_accel'})
             # raw_data = self.req.json()
             
@@ -40,6 +46,14 @@ class Main(object):
             # get past values of raw gyro and accel data
             gyro_raw = raw_data['gyro']['data'][-1][1]
             accel_raw = raw_data['accel']['data'][-1][1]
+=======
+            self.req = requests.get(self.host_url,stream=True)
+            raw_data = self.req.json()
+
+            # get past five values of raw gyro and accel data
+            gyro_raw = raw_data['gyro']['data'][-1:-4:-1]
+            accel_raw = raw_data['lin_accel']['data'][-1:-4:-1]
+>>>>>>> 8d811029c8e7bbb0165324aba5a07bf10e94c52b
             
             #mean of the past five vals
             # for i in range(len(gyro_raw)):
@@ -83,9 +97,17 @@ class Main(object):
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     # try:
     i = Main(sys.argv[1])
     i.get_data()
     # except Exception as e:
     #     print("provide url after hosting on web. Follow Readme")
     #     print(e)
+=======
+    try:
+        i = Main(sys.argv[1])
+        i.get_data()
+    except:
+        print("provide url after hosting on web. Follow Readme")
+>>>>>>> 8d811029c8e7bbb0165324aba5a07bf10e94c52b
