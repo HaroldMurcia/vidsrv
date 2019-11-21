@@ -9,7 +9,7 @@ rospy.init_node("imu_from_web",anonymous=True)
 class Main(object):
     def __init__(self, url_arg="10.60.8.174:8080"):
         self.host_url="http://"+url_arg+"/sensors.json"
-        print "URL set to:",self.host_url
+        print("URL set to:",self.host_url)
         self.imu_pub = rospy.Publisher("/imu0", Imu , queue_size=10)
         self.req = requests.get(self.host_url)
         self.imu_message = Imu()
