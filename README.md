@@ -4,7 +4,7 @@ Mobile Setup:
 
 1)Download IP Webcam from Google PlayStore
 
-2)In the app enabl data logging.
+2)In the app enable data logging.
 
 3)In Video Preferences change resolution to 640x480.
 
